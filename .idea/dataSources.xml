@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2588855684">
+    <data-source source="LOCAL" name="Rails yehudim: development" uuid="41153066-d45e-4cbb-891c-c279e8a937d2">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:yehudim_development</jdbc-url>
+      <user-name>yehudim</user-name>
+      <user-password>dfd2dfd2dfd2df9bdf98df99</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails yehudim: test" uuid="302373ed-0102-42f3-b466-00358b51d27b">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:yehudim_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails yehudim: production" uuid="82c5144a-88fd-4c70-b600-2a1e75518411">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:yehudim_production</jdbc-url>
+      <user-name>yehudim</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff3dfefdfe2dfffdfeedfe3dfe7dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
