@@ -20,7 +20,7 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql:yehudim_production</jdbc-url>
       <user-name>yehudim</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff3dfefdfe2dfffdfeedfe3dfe7dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <user-password>df99df99dfd3dfcfdfc2dfdfdfcedf8bdfc7dfdadfeadf9fdf9fdfdddf9adfd8dfcedf93df93</user-password>
       <libraries />
     </data-source>
   </component>

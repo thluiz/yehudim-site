@@ -1,0 +1,18 @@
+<div class="card <%= container_class unless container_class.nil? %>" ng-repeat="<%= repeat %>">
+  <table style="width:100%">
+    <tr>
+      <td class="picture" valign="top">
+        <a ng-href="/{{ episode.rabbi }}/{{ episode.identifier }}">
+          <img ng-src="/assets/episodes/{{ episode.identifier }}.jpg" style="width:100%" />
+        </a>
+      </td>
+      <td>&nbsp;</td>
+      <td class="text">
+        <a ng-href="/{{ episode.rabbi }}/{{ episode.identifier }}">
+          <h3>{{ episode.title }}</h3>
+          {{ episode.description }}
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

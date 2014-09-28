@@ -1,15 +1,15 @@
 
 $text-color: #404040;
-$navbar-default-bg: #6d6e72;
+$navbar-default-bg: red;
 $font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-//background:url( asset_path('projects-line.png') ) top left no-repeat;
 
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "videojs";
 
 body {
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 .navbar {
@@ -26,7 +26,7 @@ body {
 
 .navbar-brand {
   color:#fff;
-  background: url(http://www.yehudim.tv/webapp/images/ytv_logo_transparent_vs2.png) no-repeat;
+  background: url(/assets/ytv_logo_transparent_vs2.png) no-repeat;
   padding-left:70px;
   margin-left:20px !important;
 }
@@ -145,6 +145,20 @@ body {
 .card .picture {
   width:80px;
 }
-.card .text h3 {
-  margin:0;font-size:1em;font-weight: bold
+
+.card .text {
+  padding:2px;
+  margin-left:5px;font-size:0.8em;
 }
+
+.card .text h3 {
+  margin:0;font-size:1.1em;font-weight: bold
+}
+
+
+.video-js { background-color: #fff; }
+.vjs-default-skin { color: #ace5e6 }
+.vjs-play-progress, .vjs-volume-level { background-color: #669acc }
+.vjs-control-bar, .vjs-big-play-button { background: rgba(0,0,0,0.28) }
+.vjs-slider { background: rgba(0,0,0,0.09333333333333334) }
+.vjs-control-bar { display:block }

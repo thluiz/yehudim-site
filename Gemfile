@@ -7,7 +7,7 @@ gem 'rails', '4.1.4'
 platforms :jruby do
   #ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.9'
   # Use jdbcpostgresql as the database for Active Record
-  gem 'activerecord-jdbcpostgresql-adapter'
+  # gem 'activerecord-jdbcpostgresql-adapter'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyrhino'
@@ -16,7 +16,7 @@ end
 
 platforms :mri, :mingw do
   group :postgresql do
-    gem 'pg', '>= 0.11.0'
+    # gem 'pg', '>= 0.11.0'
   end
 
   group :production do

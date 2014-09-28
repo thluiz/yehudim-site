@@ -1,143 +1,16 @@
-<div class="container-fluid" style="padding-top:20px">
+<div class="container-fluid" style="padding-top:20px" ng-controller="tvshowsCtrl" ng-init="init()">
     <div class="row">
-        <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
-              <h1>Fala Sério Rabino</h1>
-        </div>
+      <div class="card ol-sm-3 col-sm-offset-1 col-md-3 col-md-offset-1" ng-repeat="tvshow in tvshows">
+        <table style="width:100%">
+          <tr>
+            <td class="text">
+              <a ng-href="/{{ tvshow.identifier }}">
+                <h3>{{ tvshow.name }}</h3>
+                {{ tvshow.description }}
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "ShaiMitzvotPurim.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>ShaiMitzvotPurim</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "UdermanChanukia.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>UdermanChanukia</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "StauberKipa.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>StauberKipa</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "ShaiMitzvotPurim.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>ShaiMitzvotPurim</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "UdermanChanukia.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>UdermanChanukia</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "StauberKipa.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>StauberKipa</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "ShaiMitzvotPurim.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>ShaiMitzvotPurim</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "UdermanChanukia.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>UdermanChanukia</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-            <div class="card">
-              <table style="width:100%">
-                <tr>
-                  <td class="picture">
-                    <%= image_tag "StauberKipa.jpg", :style => "width:100%" %>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td class="text">
-                    <h3>StauberKipa</h3>
-                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-    </div>
-</div>
 </div>

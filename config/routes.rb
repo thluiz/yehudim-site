@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'tvshow/index'
-  get 'tvshow/:identifier' => 'tvshow#index'
 
-  get 'home/index'
+  get 'programas' => 'tvshow#index'
+  get 'shows' => 'tvshow#index'
+  get ':identifier' => 'tvshow#show'
+  get ':rabbi/:identifier' => 'episode#index'
+
 
   root 'home#index'
 
