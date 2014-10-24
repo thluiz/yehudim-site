@@ -8,7 +8,6 @@ class EpisodeController < ApplicationController
     @mobile = (request.user_agent =~ /Mobile|webOS/) || (request.user_agent =~ /iPhone|iPad|iPhone|Android/i)
 
     @hide_footer = @mobile
-    @episode = get_episode_data(@rabbi, @identifier)
-    logger.info @episode["amazon_identifier"]
+    @episode = get_episode_data(@rabbi, @identifier)    
   end
 end
