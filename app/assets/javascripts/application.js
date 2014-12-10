@@ -19,8 +19,9 @@
 _V_.options.flash.swf = "/videojs.swf";
 
 
-var yehudim = angular.module('yehudim', [])
-  .service('dataService', ['$http', function ($http) {        
+var yehudim = angular.module('yehudimTV', []);
+
+yehudim.service('dataService', ['$http', function ($http) {        
         this.getFeatured = function () {
             return $http.jsonp(baseUrl + '/featured?callback=JSON_CALLBACK');
         };
@@ -37,27 +38,37 @@ var yehudim = angular.module('yehudim', [])
               return $http.jsonp(baseUrl + '/episode/' + rabbi + '/' + identifier + '?callback=JSON_CALLBACK');
             }
         };
-    }]).controller('SidebarController', ['$scope', 'dataService', function ($scope, dataService) {
+    }]);
+
+yehudim.controller('SidebarController', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getTvshows().then(function(result){
             $scope.tvshows=result.data;
         });
-    }]).controller('SpotlightController', ['$scope', 'dataService', function ($scope, dataService) {
+    }]);
+
+yehudim.controller('SpotlightController', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getFeatured().then(function(result){
             $scope.episodes=result.data;
         });
-    }]).controller('tvshowsCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]);
+
+yehudim.controller('TvshowsController', ['$scope', 'dataService', function ($scope, dataService) {
         $scope.init = function() {
             dataService.getTvshows().then(function(result){
                 $scope.tvshows=result.data;
             });
         };
-    }]).controller('tvshowCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]);
+
+yehudim.controller('TvshowController', ['$scope', 'dataService', function ($scope, dataService) {
         $scope.init = function(identifier) {
             dataService.getTvshow(identifier).then(function(result){
                 $scope.tvshow=result.data;
             });
         };
-    }]).controller('episodeCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]);
+
+yehudim.controller('EpisodeController', ['$scope', 'dataService', function ($scope, dataService) {
         $scope.init = function(rabbi, identifier) {
             dataService.getEpisode(rabbi, identifier).then(function(result){
                 $scope.episode_exist = false;

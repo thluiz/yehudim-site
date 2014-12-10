@@ -9,7 +9,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<div class="container-fluid" ng-controller="episodeCtrl" ng-init="init('<%= @rabbi %>', '<%= @identifier %>', '<%= @video %>')" ng-show="episode_exist">
+<div class="container-fluid" ng-controller="EpisodeController" ng-init="init('<%= @rabbi %>', '<%= @identifier %>', '<%= @video %>')" ng-show="episode_exist">
   <%if !@video.nil? %>
 
     <div class="row">
