@@ -19,7 +19,8 @@
 _V_.options.flash.swf = "/videojs.swf";
 
 
-var yehudim = angular.module('yehudim', []).service('dataService', function ($http) {        
+var yehudim = angular.module('yehudim', [])
+  .service('dataService', ['$http', function ($http) {        
         this.getFeatured = function () {
             return $http.jsonp(baseUrl + '/featured?callback=JSON_CALLBACK');
         };
@@ -36,7 +37,7 @@ var yehudim = angular.module('yehudim', []).service('dataService', function ($ht
               return $http.jsonp(baseUrl + '/episode/' + rabbi + '/' + identifier + '?callback=JSON_CALLBACK');
             }
         };
-    }).controller('sidebarCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]).controller('sidebarCtrl', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getTvshows().then(function(result){
             $scope.tvshows=result.data;
         });
