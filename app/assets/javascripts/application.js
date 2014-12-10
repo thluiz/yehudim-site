@@ -37,11 +37,11 @@ var yehudim = angular.module('yehudim', [])
               return $http.jsonp(baseUrl + '/episode/' + rabbi + '/' + identifier + '?callback=JSON_CALLBACK');
             }
         };
-    }]).controller('sidebarCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]).controller('SidebarController', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getTvshows().then(function(result){
             $scope.tvshows=result.data;
         });
-    }]).controller('spotlightCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    }]).controller('SpotlightController', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getFeatured().then(function(result){
             $scope.episodes=result.data;
         });
