@@ -20,17 +20,23 @@ _V_.options.flash.swf = "/videojs.swf";
 
 
 var yehudim = angular.module('yehudim', []).service('dataService', function ($http) {
+        var baseUrl = "http://nebula-exhibit.codio.io:3000/api/v1";
+        // var baseUrl = "http://admin.yehudim.tv/api/v1";
         this.getFeatured = function () {
-            return $http.jsonp('http://admin.yehudim.tv/api/v1/featured?callback=JSON_CALLBACK');
+            return $http.jsonp(baseUrl + '/featured?callback=JSON_CALLBACK');
         };
         this.getTvshows = function () {
-            return $http.jsonp('http://admin.yehudim.tv/api/v1/tvshows?callback=JSON_CALLBACK');
+            return $http.jsonp(baseUrl + '/tvshows?callback=JSON_CALLBACK');
         };
         this.getTvshow = function (identifier) {
-            return $http.jsonp('http://admin.yehudim.tv/api/v1/tvshow/' + identifier + '?callback=JSON_CALLBACK');
+            return $http.jsonp(baseUrl + '/tvshow/' + identifier + '?callback=JSON_CALLBACK');
         };
-        this.getEpisode = function (rabbi, identifier) {
-            return $http.jsonp('http://admin.yehudim.tv/api/v1/episode/' + rabbi + '/' + identifier + '?callback=JSON_CALLBACK');
+        this.getEpisode = function (rabbi, identifier, video) {
+            if(video != undefined) {
+              return $http.jsonp(baseUrl + '/episode/' + rabbi + '/' + identifier + '/' + video + '?callback=JSON_CALLBACK');
+            } else {
+              return $http.jsonp(baseUrl + '/episode/' + rabbi + '/' + identifier + '?callback=JSON_CALLBACK');
+            }
         };
     }).controller('sidebarCtrl', ['$scope', 'dataService', function ($scope, dataService) {
         dataService.getTvshows().then(function(result){

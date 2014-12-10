@@ -9,28 +9,57 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-<div class="container-fluid" ng-controller="episodeCtrl" ng-init="init('<%= @rabbi %>', '<%= @identifier %>')" ng-show="episode_exist">
-  <%if !@episode.nil? && !@episode["videos"].nil? && @episode["videos"].length > 0 %>
+<div class="container-fluid" ng-controller="episodeCtrl" ng-init="init('<%= @rabbi %>', '<%= @identifier %>', '<%= @video %>')" ng-show="episode_exist">
+  <%if !@video.nil? %>
 
     <div class="row">
       <div style="position:absolute;" id="container">
-        <video class="video-js vjs-default-skin vjs-controls-enabled" id="player" controls  autoplay
-               preload="auto"  width="720" height="480"
-               data-setup="{ }">
+        <table border="0">
+          <tr>
+            <td>
+              <video class="video-js vjs-default-skin vjs-controls-enabled" id="player" controls  autoplay preload="auto"  width="720" height="480" data-setup="{ }">
 
-          <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @episode["videos"][0]["amazon_identifier"] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
-          <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @episode["videos"][0]["amazon_identifier"] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
-          <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @episode["videos"][0]["amazon_identifier"] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
 
-        </video>
-        <div style="position:relative;float:right">
-          <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
-        </div>        
+              </video>
+              <% if @videos.length > 1 %>
+              <div style="position:relative;float:right">
+                <% if @video.nil? %>
+                  <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
+                <% else %>
+                  <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}/#{@video}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
+                <% end %>
+              </div>
+              <% end %>
+            </td>
+            <% if @videos.length > 1 %>
+            <td valign="top">
+              <div style="padding-top:20px">
+                <% @videos.each do |video| %>
+                  <div>                    
+                    <%= render :partial => "episode/video_card", :locals => { :video => video, :rabbi => @rabbi, :episode => @identifier, :container_class => "" } %>
+                  </div>
+                <% end %>
+              </div> 
+              
+            </td>
+            <% end %>
+          </tr>
+        </table>        
+        <% if @videos.length == 1 %>
+          <div style="position:relative;float:right">
+            <% if @video.nil? %>
+              <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
+            <% else %>
+              <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}/#{@video}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
+            <% end %>
+          </div>     
+        <% end %>
       </div>
     </div>
-    <% else %>
-
-    <% end %>
+  <% end %>
 </div>
 
 <script>
@@ -48,7 +77,7 @@
                     video_width = 720;
                 }
 
-                var pos_h = ((width - video_width) / 2)  + 'px';
+          var pos_h = ((width - video_width <% if @videos.length > 1 %> - 200 <% end %>) / 2)  + 'px';
                 var container = $('#container');
 
                 container.css('left', pos_h);
@@ -59,7 +88,7 @@
             function adjustPlayer(){
                 var width = $(window).width();
                 var video_width = width*0.9;
-                var pos_h = ((width - video_width) / 2)  + 'px';
+                var pos_h = ((width - video_width <% if @videos.length > 1 %> - 100 <% end %>) / 2)  + 'px';
                 var container = $('#container');
 
                 container.css('left', pos_h);

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'programas' => 'tvshow#index'
   get 'shows' => 'tvshow#index'
   get ':identifier' => 'tvshow#show'
-  get ':rabbi/:identifier' => 'episode#index'
+  get ':rabbi/:identifier(/:video)' => 'episode#index'
 
 
   root 'home#index'
