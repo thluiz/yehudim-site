@@ -4,8 +4,17 @@
   <title>Yehudim.TV</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  
+  <script>
+    <% if Rails.env.production? %>
+      var baseUrl = "http://admin.yehudim.tv/api/v1";      
+    <% else %>
+      var baseUrl = "http://nebula-exhibit.codio.io:3000/api/v1";
+    <% end %>
+  </script>
+  
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 

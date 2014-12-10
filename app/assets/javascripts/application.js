@@ -19,9 +19,7 @@
 _V_.options.flash.swf = "/videojs.swf";
 
 
-var yehudim = angular.module('yehudim', []).service('dataService', function ($http) {
-        var baseUrl = "http://nebula-exhibit.codio.io:3000/api/v1";
-        // var baseUrl = "http://admin.yehudim.tv/api/v1";
+var yehudim = angular.module('yehudim', []).service('dataService', function ($http) {        
         this.getFeatured = function () {
             return $http.jsonp(baseUrl + '/featured?callback=JSON_CALLBACK');
         };
