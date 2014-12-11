@@ -3,13 +3,17 @@
     <tr>
       <td class="picture" valign="top">
         <a href="/<%= rabbi %>/<%= episode %>/<%= video['identifier'] %>">
-          <img src="http://files2.yehudim.tv/tvshows/episodes/<%= video['amazon_identifier'] %>.jpg" style="width:100%" />
+          <img src="http://files2.yehudim.tv/tvshows/episodes/<%= video['amazon_identifier'] %>/imagem.jpg" style="width:100%" />
         </a>
       </td>
       <td>&nbsp;</td>
       <td class="text">
-        <a href="/<%= rabbi %>/<%= episode %>/<%= video['identifier'] %>">
-          <h3><%= video['title'] %></h3>
+        <a href="/<%= rabbi %>/<%= episode %>/<%= video['identifier'] %>#<%= video['identifier'] %>">
+          <% if video['identifier'] == current['identifier'] %>
+            <h3 id="<%= video['identifier'] %>" style="font-size:13px"><b><%= video['title'] %></b></h3>
+          <% else %>
+            <h3 style="font-weight:normal"><%= video['title'] %></h3>
+          <% end %>
           <%= video['description'] %>
         </a>
       </td>

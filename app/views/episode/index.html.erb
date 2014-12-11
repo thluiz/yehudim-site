@@ -19,9 +19,9 @@
             <td>
               <video class="video-js vjs-default-skin vjs-controls-enabled" id="player" controls  autoplay preload="auto"  width="720" height="480" data-setup="{ }">
 
-                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
-                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
-                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @video['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
+                <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
 
               </video>
               <% if @videos.length > 1 %>
@@ -36,10 +36,10 @@
             </td>
             <% if @videos.length > 1 %>
             <td valign="top">
-              <div style="padding-top:20px">
+              <div style="padding-top:20px;overflow:auto;width:400px;padding-bottom:60px" id="queue_player">
                 <% @videos.each do |video| %>
                   <div>                    
-                    <%= render :partial => "episode/video_card", :locals => { :video => video, :rabbi => @rabbi, :episode => @identifier, :container_class => "" } %>
+                    <%= render :partial => "episode/video_card", :locals => { :video => video, :rabbi => @rabbi, :episode => @identifier, :current => @current, :container_class => "" } %>
                   </div>
                 <% end %>
               </div> 
@@ -50,7 +50,7 @@
         </table>        
         <% if @videos.length == 1 %>
           <div style="position:relative;float:right">
-            <% if @video.nil? %>
+            <% if @current.nil? %>
               <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
             <% else %>
               <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}/#{@video}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
@@ -68,6 +68,10 @@
         var myPlayer = this;
         var aspectRatio = 480/720;
 
+      <% if !@next.nil? %>        
+        myPlayer.on("ended", function() { location.href='<%= "/#{@rabbi}/#{@identifier}/#{@next['identifier']}" %>#<%=@next['identifier']%>' } );
+      <% end %>
+      
         <%if !@mobile %>
             function adjustPlayer(){
                 var width = $(window).width();
@@ -77,23 +81,25 @@
                     video_width = 720;
                 }
 
-          var pos_h = ((width - video_width <% if @videos.length > 1 %> - 200 <% end %>) / 2)  + 'px';
+          var pos_h = ((width - video_width <% if @videos.length > 1 %> - 230 <% end %>) / 2)  + 'px';
                 var container = $('#container');
 
                 container.css('left', pos_h);
                 container.css('bottom', '75px');
                 myPlayer.width(video_width).height( video_width * aspectRatio );
+                $('#queue_player').height((video_width * aspectRatio - 120) + 'px');
             }
         <% else %>
             function adjustPlayer(){
                 var width = $(window).width();
                 var video_width = width*0.9;
-                var pos_h = ((width - video_width <% if @videos.length > 1 %> - 100 <% end %>) / 2)  + 'px';
+                var pos_h = ((width - video_width <% if @videos.length > 1 %> - 150 <% end %>) / 2)  + 'px';
                 var container = $('#container');
 
                 container.css('left', pos_h);
                 container.css('top', '80px');
                 myPlayer.width(video_width).height( video_width * aspectRatio );
+                $('#queue_player').height((video_width * aspectRatio - 120) + 'px');
             }
 
         var lastScrollTop = 0;
@@ -101,9 +107,9 @@
 
             var st = $(this).scrollTop();
             if (st <= lastScrollTop){
-                $('.navbar ').show();
+                $('.navbar').show();
             } else {
-                $('.navbar ').hide();
+                $('.navbar').hide();
             }
             lastScrollTop = st;
         });

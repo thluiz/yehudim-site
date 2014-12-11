@@ -12,7 +12,8 @@ class EpisodeController < ApplicationController
     data = get_episode_data(@rabbi, @identifier, @video)   
     
     @episode = data["episode"]
-    @video = data["current"]    
+    @current = data["current"]    
+    @next = data["next"]
     @videos = data["videos"]
   end
 end
