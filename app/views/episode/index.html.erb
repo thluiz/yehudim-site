@@ -95,7 +95,7 @@
             function adjustPlayer(){
                 var width = $(window).width();
                 var video_width = width*0.9;
-                var pos_h = ((width - video_width <% if @videos.length > 1 %> - 150 <% end %>) / 2)  + 'px';
+                var pos_h = ((width - video_width <% if @videos.length > 1 %> - 80 <% end %>) / 2)  + 'px';
                 var container = $('#container');
 
                 container.css('left', pos_h);
