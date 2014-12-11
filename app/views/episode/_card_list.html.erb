@@ -2,12 +2,9 @@
   <table style="width:100%">
     <tr>
       <td class="picture" valign="top">
-        <a ng-href="/{{ episode.rabbi }}/{{ episode.identifier }}">
-          <% if episode.id > 37 %>
-            <img ng-src="http://files2.yehudim.tv/tvshows/episodes/<%= episode.videos.first.amazon_identifier %>/episodio.jpg" style="width:100%" />
-          <% end %>
-            <img ng-src="/assets/episodes/{{ episode.identifier }}.jpg" style="width:100%" />
-          <% end %>
+        <a ng-href="/{{ episode.rabbi }}/{{ episode.identifier }}">          
+          <img ng-show="episode.id > 37" ng-src="http://files2.yehudim.tv/tvshows/episodes/{{ episode.amazon_identifier }}/episodio.jpg" style="width:100%" />          
+          <img ng-hide="episode.id > 37" ng-src="/assets/episodes/{{ episode.identifier }}.jpg" style="width:100%" />          
         </a>
       </td>
       <td>&nbsp;</td>
