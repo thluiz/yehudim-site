@@ -35,16 +35,18 @@
               <% end %>
             </td>
             <% if @videos.length > 1 %>
-            <td valign="top">
-              <div style="padding-top:20px;overflow:auto;width:400px;padding-bottom:60px" id="queue_player">
-                <% @videos.each do |video| %>
-                  <div>                    
-                    <%= render :partial => "episode/video_card", :locals => { :video => video, :rabbi => @rabbi, :episode => @identifier, :current => @current, :container_class => "" } %>
-                  </div>
-                <% end %>
-              </div> 
-              
-            </td>
+              <%if @mobile %>
+                </tr><tr>
+              <% end %>
+              <td valign="top">
+                <div style="padding-top:20px;overflow:auto;width:400px;padding-bottom:60px" id="queue_player">
+                  <% @videos.each do |video| %>
+                    <div>                    
+                      <%= render :partial => "episode/video_card", :locals => { :video => video, :rabbi => @rabbi, :episode => @identifier, :current => @current, :container_class => "" } %>
+                    </div>
+                  <% end %>
+                </div>               
+              </td>
             <% end %>
           </tr>
         </table>        
