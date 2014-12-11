@@ -51,7 +51,7 @@
           </tr>
         </table>        
         <% if @videos.length == 1 || @mobile %>
-          <div style="position:relative;float:right">
+          <div style="position:relative;<% if !@mobile %> float:right <% end %>">
             <% if @current.nil? %>
               <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
             <% else %>
