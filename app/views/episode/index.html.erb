@@ -24,7 +24,7 @@
                 <source src="http://files2.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
 
               </video>
-              <% if @videos.length > 1 %>
+              <% if @videos.length > 1 and !@mobile %>
               <div style="position:relative;float:right">
                 <% if @video.nil? %>
                   <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
@@ -50,7 +50,7 @@
             <% end %>
           </tr>
         </table>        
-        <% if @videos.length == 1 %>
+        <% if @videos.length == 1 || @mobile %>
           <div style="position:relative;float:right">
             <% if @current.nil? %>
               <div style="position:absolute;top:-30px;left:5px" class="fb-like" data-href="http://yehudim.tv/<%="#{@rabbi}/#{@identifier}"%>" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>  
