@@ -10,7 +10,7 @@
       <td class="text">
         <a href="/<%= rabbi %>/<%= episode %>/<%= video['identifier'] %>#<%= video['identifier'] %>">
           <% if video['identifier'] == current['identifier'] %>
-            <h3 id="<%= video['identifier'] %>" style="font-size:13px"><b>&lt;<%= video['title'] %></b></h3>
+            <h3 id="<%= video['identifier'] %>" style="font-size:13px"><b>&gt; <%= video['title'] %></b></h3>
           <% else %>
             <h3 style="font-weight:normal"><%= video['title'] %></h3>
           <% end %>
