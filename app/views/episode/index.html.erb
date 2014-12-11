@@ -10,7 +10,7 @@
 
 
 <div class="container-fluid" ng-controller="EpisodeController" ng-init="init('<%= @rabbi %>', '<%= @identifier %>', '<%= @video %>')" ng-show="episode_exist">
-  <%if !@video.nil? %>
+  <%if !@current.nil? %>
 
     <div class="row">
       <div style="position:absolute;" id="container">

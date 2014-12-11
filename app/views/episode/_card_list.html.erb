@@ -3,7 +3,11 @@
     <tr>
       <td class="picture" valign="top">
         <a ng-href="/{{ episode.rabbi }}/{{ episode.identifier }}">
-          <img ng-src="/assets/episodes/{{ episode.identifier }}.jpg" style="width:100%" />
+          <% if episode.id > 37 %>
+            <img ng-src="http://files2.yehudim.tv/tvshows/episodes/<%= episode.videos.first.amazon_identifier %>/episodio.jpg" style="width:100%" />
+          <% end %>
+            <img ng-src="/assets/episodes/{{ episode.identifier }}.jpg" style="width:100%" />
+          <% end %>
         </a>
       </td>
       <td>&nbsp;</td>
