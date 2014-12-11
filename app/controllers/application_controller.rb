@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def get_episode_data(rabbi, identifier, video)
     require 'net/http'
     
-    url = !Rails.env.production? ? "http://admin.yehudim.tv/" : "http://nebula-exhibit.codio.io:3000"    
+    url = Rails.env.production? ? "http://admin.yehudim.tv/" : "http://nebula-exhibit.codio.io:3000"    
     source = url + "/api/v1/episode/#{ rabbi }/#{ identifier }/#{ video }"
     Rails.logger.info(source)
     

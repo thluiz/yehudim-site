@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   
   <script>
-    <% if !Rails.env.production? %>
+    <% if Rails.env.production? %>
       var baseUrl = "http://admin.yehudim.tv/api/v1";      
     <% else %>
       var baseUrl = "http://nebula-exhibit.codio.io:3000/api/v1";
