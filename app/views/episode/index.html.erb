@@ -19,9 +19,9 @@
             <td>
               <video class="video-js vjs-default-skin vjs-controls-enabled" id="player" controls  autoplay preload="auto"  width="720" height="480" data-setup="{ }">
 
-                <source src="http://cloudfront.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
-                <source src="http://cloudfront.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
-                <source src="http://cloudfront.yehudim.tv/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
+                <source src="http://di4v3vuy8yoph.cloudfront.net/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.mp4" type='video/mp4'>
+                <source src="http://di4v3vuy8yoph.cloudfront.net/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.webm" type='video/webm'>
+                <source src="http://di4v3vuy8yoph.cloudfront.net/tvshows/episodes/<%= @current['amazon_identifier'] %>/<%= @mobile ? 'l' : 'm' %>.ogg" type='video/ogg'>
 
               </video>
               <% if @videos.length > 1 and !@mobile %>
